@@ -1,7 +1,4 @@
-/*
- * @autor : Naveen Khunteta
- * 
- */
+
 package com.qa.ExtendReportListener;
 
 import java.io.File;

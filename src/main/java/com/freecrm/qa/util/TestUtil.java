@@ -30,7 +30,14 @@ public class TestUtil extends TestBase {
 	public static long PAGE_LOAD_TIMEOUT=40;
 	public static long IMPLICIT_WAIT=20;
 	
-	public static String TESTDATA_SHEET_PATH = "C:/Users/mozahidur.abedi/Desktop/free_crm_testData.xls";
+//	public static String TESTDATA_SHEET_PATH = "C:/Users/mozahidur.abedi/Desktop/free_crm_testData.xls";
+	public static String TESTDATA_SHEET_PATH = (System.getProperty("user.dir")) 
+			+ "/src/main/java/com/freecrm/qa/testdata/free_crm_testData.xls";
+	
+	
+//	public static final String CHROME_DRIVER_EXE="C:/Users/mozahidur.abedi/eclipse-workspace/AbedinFreeCRMTest/ChromeDriver/chromedriver.exe";
+	
+	public static final String CHROME_DRIVER_EXE=(System.getProperty("user.dir"))+ "/ChromeDriver/chromedriver.exe";
 	
 
 	
@@ -97,6 +104,10 @@ public class TestUtil extends TestBase {
 	
 	}
 	
+	
+	
+		
+
 
 	
 	

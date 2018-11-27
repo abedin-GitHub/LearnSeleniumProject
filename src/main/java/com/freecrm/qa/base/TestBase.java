@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,14 +15,20 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.freecrm.qa.util.TestUtil;
 import com.freecrm.qa.util.WebEventListener;
+import com.freecrm.qa.util.projectConstants;
+
 
 public class TestBase {
 	
 	public static WebDriver driver;
 	public static Properties prop;
+
+	// EventFiringWebDriver generates selenium Action Logs
 	
 	public  static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
+	
+	public static Logger log ;
 	
 //Within constructor,read the properties file
 	public TestBase()
@@ -48,8 +55,8 @@ public class TestBase {
 		
 		else if (browserName.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "C:/Users/mozahidur.abedi/eclipse-workspace/AbedinFreeCRMTest/ChromeDriver/chromedriver.exe");	 
-			
+			//System.setProperty("webdriver.chrome.driver", "C:/Users/mozahidur.abedi/eclipse-workspace/AbedinFreeCRMTest/ChromeDriver/chromedriver.exe");	 
+			System.setProperty("webdriver.chrome.driver", TestUtil.CHROME_DRIVER_EXE);
 			driver= new ChromeDriver();
 		}
 		
@@ -68,6 +75,7 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT,TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));
 		Thread.sleep(1000);
+		log= Logger.getLogger(TestBase.class);
 		
 	
 	}

@@ -36,22 +36,28 @@ public class HomePageTest extends TestBase{
 		homePage=loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 	}
 	
-	@Test(priority=1)
-	public void homePageVerifyTitleTest()
-	 {
-		String homePageTile=homePage.verifyHomePageTitle();
-		Assert.assertEquals(homePageTile, "CRMPRO","Home page title not matched.");
-		
-	 }
 	
-	@Test(priority=2)
+	
+
+	@Test(priority=1,enabled=true)
 	public void homePageVerifyCorrectUserName()
 	{
 		testUtil.switchToFrame();	
 		Assert.assertTrue(homePage.verifyCorrectUserName());
 	}
 	
-	@Test(priority=3)
+	
+	
+	@Test(priority=2,enabled=true,dependsOnMethods= {"homePageVerifyCorrectUserName"})
+	public void homePageVerifyTitleTest()
+	 {
+		String homePageTile=homePage.verifyHomePageTitle();
+		Assert.assertEquals(homePageTile, "CRMPRO1","Home page title does not match.");
+		
+	 }
+	
+	
+	@Test(priority=3,enabled=true,dependsOnMethods= {"homePageVerifyTitleTest"})
 	public void verifyContactsLinkTest()
 	{
 		testUtil.switchToFrame();

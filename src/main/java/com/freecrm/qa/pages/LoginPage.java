@@ -25,7 +25,9 @@ public class LoginPage extends TestBase {
 	@FindBy(xpath="//btn[contains(text(),'Sign Up')]")
 	WebElement signUpBtn;
 	
-	@FindBy(xpath="//img[contains(class,'img-responsive')]")
+//	@FindBy(xpath="//img[contains(class,'img-responsive')]")
+	@FindBy(xpath="//img[@class='img-responsive']")
+	
 	WebElement crmLogo;
 
 	
