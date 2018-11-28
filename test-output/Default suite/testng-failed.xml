@@ -3,15 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.freecrm.qa.testcases.HomePageTest">
+      <class name="com.freecrm.qa.testcases.ContactsPageTest">
         <methods>
-          <include name="setup"/>
+          <include name="validateDeleteContact" invocation-numbers="1"/>
           <include name="tearDown"/>
-          <include name="homePageVerifyTitleTest"/>
-          <include name="verifyContactsLinkTest"/>
-          <include name="homePageVerifyCorrectUserName"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.freecrm.qa.testcases.HomePageTest -->
+      </class> <!-- com.freecrm.qa.testcases.ContactsPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
