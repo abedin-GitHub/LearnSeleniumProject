@@ -1,149 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="2" total="6" passed="4">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="128879" started-at="2018-11-28T15:37:16Z" finished-at="2018-11-28T15:39:25Z">
+  <suite name="Default suite" duration-ms="27919" started-at="2018-12-02T16:15:51Z" finished-at="2018-12-02T16:16:18Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="128879" started-at="2018-11-28T15:37:16Z" finished-at="2018-11-28T15:39:25Z">
-      <class name="com.freecrm.qa.testcases.ContactsPageTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="setup" is-config="true" duration-ms="16341" started-at="2018-11-28T21:07:17Z" finished-at="2018-11-28T21:07:33Z">
+    <test name="Default test" duration-ms="27919" started-at="2018-12-02T16:15:51Z" finished-at="2018-12-02T16:16:18Z">
+      <class name="com.freecrm.qa.testcases.LoginPageTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.freecrm.qa.testcases.LoginPageTest@3bfdc050]" name="setup" is-config="true" duration-ms="16930" started-at="2018-12-02T21:45:51Z" finished-at="2018-12-02T21:46:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="validateNewContact(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="validateNewContact" duration-ms="3519" started-at="2018-11-28T21:07:33Z" data-provider="applicationCustomerNames" finished-at="2018-11-28T21:07:36Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Mr.]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[tom]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Peter]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Google]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="loginTest()[pri:3, instance:com.freecrm.qa.testcases.LoginPageTest@3bfdc050]" name="loginTest" duration-ms="7510" started-at="2018-12-02T21:46:08Z" finished-at="2018-12-02T21:46:15Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateNewContact -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="tearDown" is-config="true" duration-ms="821" started-at="2018-11-28T21:07:36Z" finished-at="2018-11-28T21:07:37Z">
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.freecrm.qa.testcases.LoginPageTest@3bfdc050]" name="tearDown" is-config="true" duration-ms="3391" started-at="2018-12-02T21:46:15Z" finished-at="2018-12-02T21:46:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="setup" is-config="true" duration-ms="14957" started-at="2018-11-28T21:07:37Z" finished-at="2018-11-28T21:07:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="validateNewContact(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="validateNewContact" duration-ms="3481" started-at="2018-11-28T21:07:52Z" data-provider="applicationCustomerNames" finished-at="2018-11-28T21:07:56Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Dr.]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Neeraj]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Dubey]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Amzon]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateNewContact -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="tearDown" is-config="true" duration-ms="803" started-at="2018-11-28T21:07:56Z" finished-at="2018-11-28T21:07:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="setup" is-config="true" duration-ms="15045" started-at="2018-11-28T21:07:57Z" finished-at="2018-11-28T21:08:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="validateDeleteContact(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:4, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="validateDeleteContact" duration-ms="29138" started-at="2018-11-28T21:08:12Z" data-provider="applicationCustomerNames" finished-at="2018-11-28T21:08:41Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Mr.]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[tom]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Peter]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Google]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateDeleteContact -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="tearDown" is-config="true" duration-ms="808" started-at="2018-11-28T21:08:41Z" finished-at="2018-11-28T21:08:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="setup" is-config="true" duration-ms="14986" started-at="2018-11-28T21:08:42Z" finished-at="2018-11-28T21:08:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="validateDeleteContact(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:4, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="validateDeleteContact" duration-ms="27975" started-at="2018-11-28T21:08:57Z" data-provider="applicationCustomerNames" finished-at="2018-11-28T21:09:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Dr.]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Neeraj]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Dubey]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Amzon]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateDeleteContact -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.freecrm.qa.testcases.ContactsPageTest@5ec0a365]" name="tearDown" is-config="true" duration-ms="773" started-at="2018-11-28T21:09:24Z" finished-at="2018-11-28T21:09:25Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.freecrm.qa.testcases.ContactsPageTest -->
+      </class> <!-- com.freecrm.qa.testcases.LoginPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -1,5 +1,12 @@
 package com.freecrm.qa.pages;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +33,9 @@ public class ContactsPage extends TestBase {
 	@FindBy(name="client_lookup")
 	WebElement companyName;
 	
+	@FindBy(id="email")
+	WebElement clientEMail;
+	
 	
 	@FindBy(xpath="//input[@type='submit' and @value='Save']")
 	WebElement saveBtn;
@@ -34,6 +44,9 @@ public class ContactsPage extends TestBase {
 			"				+ \"//following-sibling::td//following-sibling::td//following-sibling::td//following-sibling::td//a\"\r\n" + 
 			"				+ \"//following-sibling::a//following-sibling::a//following-sibling::a//i[@title='Delete']")
 	WebElement deleteBtn;
+	
+
+	
 	
 	
 	public ContactsPage()
@@ -52,7 +65,7 @@ public class ContactsPage extends TestBase {
 				+ "//input[@name='contact_id']")).click();			
 	}
 	
-	public void createNewContact(String title,String ftName,String ltName,String comp)
+	public void createNewContact(String title,String ftName,String ltName,String comp,String eMail)
 	{
 	//	Select select= new Select(ContactTitle);
 		Select select= new Select(driver.findElement(By.name("title")));
@@ -63,6 +76,8 @@ public class ContactsPage extends TestBase {
 		System.out.println(ftName);
 		lastName.sendKeys(ltName);
 		companyName.sendKeys(comp);
+		clientEMail.sendKeys(eMail);
+		
 		saveBtn.click();
 		String completeName=ftName+ltName;
 		System.out.println(completeName);
@@ -99,6 +114,69 @@ public class ContactsPage extends TestBase {
 		        return false;
 		    }
 		}
+
 	
+	
+	
+	public boolean CheckIfUserDataIsCorrectInContactPage() {
+		List<HashMap<String, String>> wholeTableActual = new ArrayList<HashMap<String, String>>();
+		List<HashMap<String, String>> wholeTableExpected = TestUtil.readExcelNameEmail();
+
+		List<WebElement> allRows = driver.findElements(By.xpath("//form[@id='vContactsForm']/table/tbody/tr"));
+		int noOfRows = allRows.size();
+
+		for (int rnum = 4; rnum < noOfRows; rnum++) {
+
+			HashMap<String, String> eachRowDetail = new HashMap<String, String>();
+			WebElement row = allRows.get(rnum);
+
+			String name = row.findElement(By.xpath("//form[@id='vContactsForm']/table/tbody/tr[" + rnum + "]/td[2]"))
+					.getText();
+			String email = row.findElement(By.xpath("//form[@id='vContactsForm']/table/tbody/tr[" + rnum + "]/td[7]"))
+					.getText();
+
+			eachRowDetail.put("name", name);
+			eachRowDetail.put("email", email);
+			wholeTableActual.add(eachRowDetail);
+		}
+
+		if ((wholeTableActual.size()) != wholeTableExpected.size()) {
+			System.out.println("expected size list is not match with aactual size list\nactual list:-"
+					+ wholeTableActual.size() + "\n expected list:-" + wholeTableExpected.size());
+		} else {
+
+			for (int i = 0; i < wholeTableActual.size(); i++) {
+				boolean ismached = false;
+				HashMap<String, String> comapreactualMap = wholeTableActual.get(i);
+				for (int j = 0; j < wholeTableExpected.size(); j++) {
+					HashMap<String, String> expectedctualMap = wholeTableExpected.get(j);
+
+					if (TestUtil.comparemaps(comapreactualMap, expectedctualMap)) {
+						ismached = true;
+						break;
+					}
+
+				}
+				if (!ismached) {
+					// return false
+					System.out.println("name:-" + comapreactualMap.get("name"));
+					System.out.println(ismached);
+					return false;
+
+				}
+
+			}
+
+		}
+		return true;
+
+	}
 
 }
+	
+	
+	
+	
+	
+	
+

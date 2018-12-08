@@ -12,75 +12,67 @@ import com.freecrm.qa.pages.LoginPage;
 import com.freecrm.qa.util.Data_Provider;
 import com.freecrm.qa.util.TestUtil;
 
-
-
 public class ContactsPageTest extends TestBase {
-	
+
 	LoginPage loginPage;
-	HomePage  homePage;
+	HomePage homePage;
 	TestUtil testUtil;
 	ContactsPage contactsPage;
-	
-	String sheetName="contacts";
-	
-	public ContactsPageTest()
-	{
+
+	String sheetName = "contacts";
+
+	public ContactsPageTest() {
 		super();
 	}
-	
+
 	@BeforeMethod
-	public void setup() throws InterruptedException 
-	{
+	public void setup() throws InterruptedException {
 		initialization();
-		testUtil= new TestUtil();
-		loginPage= new LoginPage();
+		testUtil = new TestUtil();
+		loginPage = new LoginPage();
 		contactsPage = new ContactsPage();
-		homePage=loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		testUtil.switchToFrame();
 		homePage.clickOnConatctLink();
 	}
-	
-	@Test(priority=1,enabled=false)
-	public void verifyContacyLabelTest()
-	{
-		Assert.assertTrue(contactsPage.verifyContactLabel(),"Contact label is missing");
+
+	@Test(priority = 1, enabled = false)
+	public void verifyContacyLabelTest() {
+		Assert.assertTrue(contactsPage.verifyContactLabel(), "Contact label is missing");
 	}
-	
-	
-	@Test(priority=2,enabled=false)
-	public void selectContactsByName()
-	{
+
+	@Test(priority = 2, enabled = false)
+	public void selectContactsByName() {
 		contactsPage.selectContactsByName("abdn abdn");
 	}
-		
-	
 
-	@Test(priority=3, dataProviderClass=Data_Provider.class,dataProvider="applicationCustomerNames",enabled=true)
-	
-	public void validateNewContact(String title,String fName,String lName,String comapnyName)
-	{
+	@Test(priority = 3, dataProviderClass = Data_Provider.class, dataProvider = "applicationCustomerNames", enabled = true)
+	public void validateNewContact(String title, String fName, String lName, String comapnyName, String mail) {
 		homePage.clickOnNewContactLink();
-		contactsPage.createNewContact(title,fName,lName,comapnyName);
+		contactsPage.createNewContact(title, fName, lName, comapnyName, mail);
 
 	}
-	
-	@Test(priority=4, dataProviderClass=Data_Provider.class,dataProvider="applicationCustomerNames",enabled=true)
-	public void validateDeleteContact(String title,String fName,String lName,String comapnyName) throws InterruptedException
-	{
-		
-		contactsPage.deleteContact(fName,lName);
-		Assert.assertFalse(contactsPage.CheckIfContactDeletedSuccessfully(fName, lName),(fName+lName) +" contact could not be deleted");
-	
+
+	@Test(priority = 4, enabled = true,dependsOnMethods= {"validateNewContact"})
+	public void validateUserDetail() {
+		Assert.assertTrue(contactsPage.CheckIfUserDataIsCorrectInContactPage(),
+				"User Data is not matching ! Please Check");
+
 	}
-	
-	
-	
+
+	@Test(priority = 5, dataProviderClass = Data_Provider.class, dataProvider = "applicationCustomerNames", enabled = true,dependsOnMethods= {"validateNewContact"})
+	public void validateDeleteContact(String title, String fName, String lName, String comapnyName, String mail)
+			throws InterruptedException {
+
+		contactsPage.deleteContact(fName, lName);
+		Assert.assertFalse(contactsPage.CheckIfContactDeletedSuccessfully(fName, lName),
+				(fName + lName) + " contact could not be deleted");
+
+	}
+
 	@AfterMethod
-	public void tearDown()
-	{
+	public void tearDown() {
 		driver.quit();
 	}
-	
-
 
 }
