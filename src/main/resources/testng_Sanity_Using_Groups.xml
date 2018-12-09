@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Automation Assessment Project">
+  <test name="Free CRM App Test Cases For Sanity Using GroupId">
+  	<groups>
+      <run>
+        <include name="sanityGroup"/>
+      </run>
+    </groups>
+    <classes>
+       <class name="com.freecrm.qa.testcases.LoginPageTest" />
+    </classes>
+  </test>
+</suite>

@@ -20,7 +20,7 @@ public class LoginPageTest extends TestBase {
 		super();
 	}
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void setup() throws InterruptedException {
 		initialization();
 		testUtil = new TestUtil();
@@ -32,7 +32,7 @@ public class LoginPageTest extends TestBase {
 	// and giving us the advantages by minimizing issues arising due to cookies and
 	// cache.
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true,groups= {"sanityGroup"})
 
 	public void loginPageTitleTest() {
 		log.info("************* Test case starts************************");
@@ -50,7 +50,7 @@ public class LoginPageTest extends TestBase {
 
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true,groups= {"sanityGroup"})
 	public void crmLogoImageTest() {
 		log.info("************* Test case starts************************");
 		log.info("************* Verify Logo of Login Page *************");
@@ -61,7 +61,7 @@ public class LoginPageTest extends TestBase {
 
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = true,groups= {"sanityGroup","RegressionGroup"})
 	public void loginTest() {
 		log.info("************* Test case starts************************");
 		log.info("************* Verify Login user *************");
@@ -73,7 +73,7 @@ public class LoginPageTest extends TestBase {
 
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void tearDown() {
 		driver.quit();
 		log.info("********* Browser is closed **************************");

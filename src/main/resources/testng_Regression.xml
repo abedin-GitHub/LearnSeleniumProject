@@ -9,6 +9,7 @@
 
 
 	<test name="Free CRM App Test Cases For Regression">
+	
 		<classes>
 			<class name="com.freecrm.qa.testcases.LoginPageTest"></class>
 			<class name="com.freecrm.qa.testcases.HomePageTest"></class>

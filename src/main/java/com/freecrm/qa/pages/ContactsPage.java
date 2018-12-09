@@ -95,7 +95,7 @@ public class ContactsPage extends TestBase {
 //				+ "//following-sibling::a//following-sibling::a//following-sibling::a//i[@title='Delete']")).click();
 		element.click();
 		driver.switchTo().alert().accept();
-		TestUtil.checkElemenetPresent(driver, element, 30);
+		TestUtil.checkElemenetPresent(driver, element, 10);
 	//	Thread.sleep(1000);
 		
 	}

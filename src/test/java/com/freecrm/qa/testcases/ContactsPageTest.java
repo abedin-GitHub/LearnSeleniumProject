@@ -46,21 +46,23 @@ public class ContactsPageTest extends TestBase {
 		contactsPage.selectContactsByName("abdn abdn");
 	}
 
-	@Test(priority = 3, dataProviderClass = Data_Provider.class, dataProvider = "applicationCustomerNames", enabled = true)
+	@Test(priority = 3, dataProviderClass = Data_Provider.class, dataProvider = "applicationCustomerNames", enabled = false)
 	public void validateNewContact(String title, String fName, String lName, String comapnyName, String mail) {
 		homePage.clickOnNewContactLink();
 		contactsPage.createNewContact(title, fName, lName, comapnyName, mail);
+		
+		
 
 	}
 
-	@Test(priority = 4, enabled = true,dependsOnMethods= {"validateNewContact"})
+	@Test(priority = 4, enabled = false,dependsOnMethods= {"validateNewContact"})
 	public void validateUserDetail() {
 		Assert.assertTrue(contactsPage.CheckIfUserDataIsCorrectInContactPage(),
 				"User Data is not matching ! Please Check");
 
 	}
 
-	@Test(priority = 5, dataProviderClass = Data_Provider.class, dataProvider = "applicationCustomerNames", enabled = true,dependsOnMethods= {"validateNewContact"})
+	@Test(priority = 5, dataProviderClass = Data_Provider.class, dataProvider = "applicationCustomerNames", enabled = true)
 	public void validateDeleteContact(String title, String fName, String lName, String comapnyName, String mail)
 			throws InterruptedException {
 

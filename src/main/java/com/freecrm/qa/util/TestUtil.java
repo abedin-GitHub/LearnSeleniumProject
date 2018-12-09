@@ -34,7 +34,7 @@ import com.freecrm.qa.base.TestBase;
 
 public class TestUtil extends TestBase {
 	
-	public static long PAGE_LOAD_TIMEOUT=40;
+	public static long PAGE_LOAD_TIMEOUT=20;
 	public static long IMPLICIT_WAIT=20;
 	
 //	public static String TESTDATA_SHEET_PATH = "C:/Users/mozahidur.abedi/Desktop/free_crm_testData.xls";
